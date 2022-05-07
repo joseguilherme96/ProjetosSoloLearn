@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>  
+   
+ <head>      
+        
+<title>Page Title</title>   
+<style>
+#amount{
+position:absolute;
+display:none;
+    width:90px;
+    z-index:1;
+    visible:hidden;
+    color:#F4A460;
+    font-size:25px;
+    left:220px;
+    text-align:center;
+}
+#text{
+position:absolute;
+display:none;
+    width:110px;
+    z-index:1;
+    visible:hidden;
+    color:#F4A460;
+    font-size:25px;
+    left:220px;
+    top: 40px;
+    text-align:center;
+}
+#btnmore{
+position:absolute;
+    width:110px;
+    z-index:1;
+    text-align:center;
+    color:#F4A460;
+    font-size:25px;
+    left:220px;
+    top: 120px;
+    text-align:center;
+}
+
+p{
+    font-size:15px;
+    font-variant:0.1px;
+    font-weight:9;
+    margin:0px;
+}
+</style>
+<script>
+var log = new Array(
+'Wake Up', "Have Breakfast",'To Work', 'Run', 'To drive', 'Swim', 'Walk', 'To Think', 'To Study', 'Log in SoloLearn', 'To Practice',"To challenge","To Program","Watch", "To Play", "To Plant", "Spoon","To Help","Eat", "To Travel", "To Sleep", "Read", "Photograph", "To Choose", "Learn","Amuse");
+  
+var x =0;  
+var v;  
+var c=0;  
+var rm =0;  
+  
+
+function limpa(){
+    clearInterval();
+}
+
+q=0;
+
+function pulalinha(){
+    var pulalinha = document.createElement("p");
+        var pontos = document.getElementById("logs");
+        pontos.appendChild(pulalinha);
+}
+
+function pulalinha1(){
+    var pulalinha = document.createElement("p");
+        var pontos = document.getElementById("more");
+        pontos.appendChild(pulalinha);
+}
+
+function registro(x,rm=0){
+
+document.getElementById("amount").setAttribute("style","visibility:visible;display:block;");
+
+    var tela = document.getElementById("amount");
+    
+    var node = document.createTextNode(x);
+    
+    tela.appendChild(node);
+     
+    tela.removeChild(tela.childNodes[0]);
+
+document.getElementById("text").setAttribute("style","visibility:visible;display:block;");
+    var tela1 = document.getElementById("text");
+    
+    var node = document.createTextNode(" Records Found");
+    
+    tela1.appendChild(node);
+     
+    tela1.removeChild(tela1.childNodes[0]);
+}
+
+var total;
+
+function contador(x,rm){
+    if(x<26){
+    total = x+1;
+    registro(total);
+    }
+    if(x >25){
+    
+         total = 26 + rm;
+    registro(total);
+    
+    }
+    return total;
+}
+
+function g(){
+
+if(total >=26){
+    var x = prompt("What else can be done ?");
+    pulalinha1();
+    var texto = document.createTextNode("................."+x);
+    var tela = document.getElementById("more");
+    
+    if(x){
+    tela.appendChild(texto);
+    rm++;
+    contador(26,rm);
+    }else{
+       contador(26,0); 
+        
+    }
+    
+    limpa();
+    
+ }else{
+     alert("Please wait.....");
+ }
+    
+    
+}
+function load(){
+if(x<26){
+
+if(q<20){
+
+
+    var ponto = document.createTextNode(".");
+    var pontos = document.getElementById("logs");
+    pontos.appendChild(ponto);
+    
+    }else{
+        pulalinha();
+        q=0;
+    
+    }
+
+}else{
+    limpa();
+}
+    q+=1;
+
+}
+function logs(){
+
+    var i=0;
+    
+    if(x<26){
+     var ponto = document.createTextNode(log[x]);
+    var pontos = document.getElementById("logs");
+    pontos.appendChild(ponto);
+        contador(c);
+      }else{
+          limpa();
+      }
+
+    x++;
+    c++;
+}
+</script>
+  
+  </head>  
+   
+ <body>    
+      
+  <div id="amount">
+  
+    
+</div>        
+     
+  <div id="text">      
+      </div>   
+      <div id="btnmore">  
+      <img src="https://st3.depositphotos.com/2229436/13702/v/1600/depositphotos_137026158-stock-illustration-flat-plus-icon-addition-circle.jpg" width="110px" onclick="g(1,1)"/>
+      </div>
+        <div id="more">
+      </div>
+      <div id="logs">
+ 
+     </div>
+        <script type="text/javascript">
+        setInterval(logs,1000);
+         setInterval(load,50);
+        </script>
+    </body>
+</html>
+
+
+
