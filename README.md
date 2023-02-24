@@ -17,3 +17,6 @@ O jogo não possui pontuação. O jogo é encerrado assim que alguém vence a pa
 
 ### Regra
 O jogador não vai conseguir preencher o mesmo espaço que o computador. Caso haja uma tentativa o programa irá solicitar que digite novamente com um espaço que ainda não foi preechido por nenhum dos jogadores. Agora caso o computador tente preencher um espaço que já foi preenchido por você automaticamente irá encontrar outro espaço em branco.
+
+## Stopwatch
+Um crônometro desenvolvido em python utilizando o módulo time e sua entidade sleep. O crônometro é capaz de mostrar os segundos, minutos e até horas que já se passaram.
