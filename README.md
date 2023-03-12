@@ -20,3 +20,7 @@ O jogador não vai conseguir preencher o mesmo espaço que o computador. Caso ha
 
 ## Stopwatch
 Um crônometro desenvolvido em python utilizando o módulo time e sua entidade sleep. O crônometro é capaz de mostrar os segundos, minutos e até horas que já se passaram.
+
+## Calculadora Estatística 
+Desenvolvida ultilizando as principais tecnologias HTML,Bootstrap e JavaScript. A calculadora é capaz de organizar uma determinada sequência de numeros em ordem crescente, mostrando a media, mediana e moda de uma determinada sequência digitada pelo usuário.
+A ideia surgiu na aula de javascript na Fatec São Roque onde o professor propôs que criasse algo com o que já havia ensinado, como tenho aula de estatística também e estava tendo que calcular a media, mediana e moda no papel, resolvi criar este programa que supostamente calcularia para mim hehehe.
