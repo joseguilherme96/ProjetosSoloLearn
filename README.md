@@ -26,4 +26,4 @@ Desenvolvida ultilizando as principais tecnologias HTML,Bootstrap e JavaScript. 
 A ideia surgiu na aula de javascript na Fatec São Roque onde o professor propôs que criasse algo com o que já havia ensinado, como tenho aula de estatística também e estava tendo que calcular a media, mediana e moda no papel, resolvi criar este programa que supostamente calcularia para mim hehehe.
 
 ## Web Scrapping Beautiful Soup 4
-Código feito em python tem como objetivo extrai dados de um site de supermecado como nome e preço dos produtos.Foram necessárias a utilização dos pacotes Beautiful Soup 4, Requests e Numpy.
+Código feito em python tem como objetivo extrair dados de um site de supermecado como nome e preço dos produtos. Foram necessárias a utilização dos pacotes Beautiful Soup 4, Requests e Numpy.
