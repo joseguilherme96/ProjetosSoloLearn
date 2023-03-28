@@ -1,6 +1,6 @@
 import sys
 
-# Adiciona o caminho dos módulos na variavel do sistema
+# Adiciona o caminho dos módulos na variavel do sistema que salva o caminho dos módulos
 sys.path.append("c:\\users\\josé guilherme\\appdata\\local\\programs\\python\\python310\\lib\\site-packages")
 
 from bs4 import BeautifulSoup
@@ -12,13 +12,6 @@ links_das_paginas = [
     'https://www.sitemercado.com.br/mairinquesupermercado/mairinque-loja-monteiro-lobato-centro-rua-monteiro-lobato/produtos/alimentos-basicos/feijao',
     'https://www.sitemercado.com.br/mairinquesupermercado/mairinque-loja-monteiro-lobato-centro-rua-monteiro-lobato/produtos/alimentos-basicos/acucares-e-adocantes',
     'https://www.sitemercado.com.br/mairinquesupermercado/mairinque-loja-monteiro-lobato-centro-rua-monteiro-lobato/produtos/bebidas/aguas'
-]
-
-produtos_pesquisados = [
-    'Arroz',
-    'Feijão','Feijao',
-    'Acucar','Açucar','Adoçante','Xilitol','Pack',
-    'Agua','Água'
 ]
 
 for x in range(len(links_das_paginas)):
@@ -34,25 +27,24 @@ for x in range(len(links_das_paginas)):
     lista_produtos = []
 
     # Adiciona produtos a lista
-    for link in soup.find_all('a'):
-        nome = link.get("aria-label")
-        if(link.get("aria-label") != None):
-            for produto in produtos_pesquisados:
-                    end = len(produto)
-                    if(nome[0:end] == produto or nome[0:end] == produto):
-                        lista_produtos.append(link.get("aria-label"))
+    products_area  = soup.find('div',{'class':'products-area'}).find_all('a');
+
+    for produto in products_area:
+        if(len(produto.get('aria-label')) > 5 and produto.get('aria-label') not in lista_produtos):
+            lista_produtos.append(produto.get('aria-label'))
+
 
     lista_precos = []
 
     # Adiciona preço dos produtos a lista
-    for area_produto in soup.find_all('div'):
-        lista_classes_tag = area_produto.get("class")
-        if(lista_classes_tag != None and len(lista_classes_tag) > 0):
-            if(lista_classes_tag[0]=="area-preco"):
-                valor = area_produto.div.contents[1]
-                lista_precos.append(valor)
+    for produto in products_area:
+        preco = produto.div
 
-    lista_produtos[:]= numpy.unique(lista_produtos)
+        if(produto.get('aria-label') in lista_produtos and preco != None and preco.get('class')[0] == 'area-bloco-preco'):
+            lista_precos.append(preco.contents[1])
+
+
+    #lista_pro'dutos[:]= numpy.unique(lista_produtos)
 
     print("Exibindo produtos do site")
 
