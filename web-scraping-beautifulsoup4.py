@@ -24,44 +24,46 @@ for x in range(len(links_das_paginas)):
     # Exibe código da pagina
     #print(soup.prettify())
 
-    lista_produtos = []
+    dicionario = {}
 
     # Adiciona produtos a lista
     products_area  = soup.find('div',{'class':'products-area'}).find_all('a');
 
-    for produto in products_area:
-        if(len(produto.get('aria-label')) > 5 and produto.get('aria-label') not in lista_produtos):
-            lista_produtos.append(produto.get('aria-label'))
-
-
-    lista_precos = []
-
-    # Adiciona preço dos produtos a lista
+    x= 0
     for produto in products_area:
         preco = produto.div
+        nomeProduto = produto.get('aria-label')
 
-        if(produto.get('aria-label') in lista_produtos and preco != None and preco.get('class')[0] == 'area-bloco-preco'):
-            lista_precos.append(preco.contents[1])
+        if(len(nomeProduto) > 5 and nomeProduto not in dicionario and preco != None and \
+        preco.get('class')[0] == 'area-bloco-preco'):
+        
+            if nomeProduto.lower().find("kg") != -1:
+                end = nomeProduto.lower().find("kg") # Encontra unidade peso
+                start = end - 1
+                end = end + 2
+                peso = nomeProduto[start:end]
 
+            elif nomeProduto.lower().find("ml") != -1:
+                end = nomeProduto.lower().find("ml")  # Encontra unidade ml
+                start = end - 1
+                try:
+                    while int(nomeProduto[start:end]) >=0:
+                        start-=1
+                except:
+                    start+=1
+                    end = end + 2
+                    peso = nomeProduto[start:end].strip()
+            else:
+                peso = nomeProduto[start:end]
+                peso= None
 
-    #lista_pro'dutos[:]= numpy.unique(lista_produtos)
+            dicionario[x] = {
+                'nomeProduto : ':produto.get('aria-label'),
+                'precoProduto :': preco.contents[1],
+                'tamanho':peso}
+            x+=1
 
     print("Exibindo produtos do site")
 
-    for x in range(len(lista_produtos)):
-
-        produto = lista_produtos[x];
-        preco = lista_precos[x];
-
-        print(produto,preco)
-
-    # Teste
-    # A Quantidade de produtos armazenado na lista tem que ser igual a quantidade de preço armazenado na lista
-    print("\n Teste")
-    teste = len(lista_produtos) == len(lista_precos)
-
-    print("Resultado ------> Esperado")
-    print(len(lista_produtos) == len(lista_precos), "----->>> True")
-
-    if(teste == False):
-        print("Nem todos os produtos do site foram exibidos !!!")
+    for produtos in dicionario.items():
+        print(produtos)
