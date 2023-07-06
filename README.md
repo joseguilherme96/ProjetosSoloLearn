@@ -30,3 +30,6 @@ Código feito em python tem como objetivo extrair dados de um site de supermecad
 
 ## ChatGPT
 Script criado para conversa com o ChatGPT pelo terminal do computador(cmd).
+Para que o script funcione é preciso cadastrar uma chave no site [openai](https://platform.openai.com/account/api-keys/) e armazenar na variável openai.api_key = "colar sua chave cadastrada aqui" que estána linha 3 do código.
+O script pode ser rodado via terminal do windows(cmd) utilizando o comando python chatGPT.py ou ainda por uma IDE de sua preferência.
+Assim você consegue ter uma conversa com o chatGPT e perguntar o que quiser que ele vai te responder !
