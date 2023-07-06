@@ -27,3 +27,6 @@ A ideia surgiu na aula de javascript na Fatec São Roque onde o professor propô
 
 ## Web Scrapping Beautiful Soup 4
 Código feito em python tem como objetivo extrair dados de um site de supermecado como nome e preço dos produtos. Foram necessárias a utilização dos pacotes Beautiful Soup 4, Requests e Numpy.
+
+## ChatGPT
+Script criado para conversa com o ChatGPT pelo terminal do computador(cmd).
