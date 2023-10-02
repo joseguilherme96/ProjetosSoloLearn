@@ -33,3 +33,6 @@ Script criado para conversa com o ChatGPT pelo terminal do computador(cmd).
 Para que o script funcione é preciso cadastrar uma chave no site [openai](https://platform.openai.com/account/api-keys/) e armazenar na variável `openai.api_key = "colar sua chave cadastrada aqui"`que está na linha 3 do código.
 O script pode ser rodado via terminal do windows(cmd) utilizando o comando `python chatGPT.py` ou ainda executar por uma IDE de sua preferência.
 Assim você consegue ter uma conversa com o chatGPT e perguntar o que quiser que ele vai te responder !
+
+## Gerenciador De Processos
+Está é uma pequena parte de uma idéia/aplicação que será elaborada para Gerenciar Processos de uma fabrica. A ideia consiste em dar instruções para o operador da máquina quais ações que ele deve tomar para efetuar cada processo. Assim ele, como seu supervisores poderão controlar melhor os processos que estão sendo executados na empresa.
