@@ -36,3 +36,17 @@ Assim você consegue ter uma conversa com o chatGPT e perguntar o que quiser que
 
 ## Gerenciador De Processos
 Está é uma pequena parte de uma idéia/aplicação que será elaborada para Gerenciar Processos de uma fabrica. A ideia consiste em dar instruções para o operador da máquina quais ações que ele deve tomar para efetuar cada processo. Assim ele, como seu supervisores poderão controlar melhor os processos que estão sendo executados na empresa.
+
+## Buscador de CEP com Vue.js
+Buscador de CEP com Vue.js para uma possível integração em frameworks como CodeIgniter e Laravel.
+
+O Vue.js trás uma resposta imediata do cep pesquisado, graças aos observadores(Watchers) do vue.js
+
+O consumo da API foi feita através do [Site](https://nominatim.openstreetmap.org/).
+
+Vue.js funciona 100% via CDN, sem necessidade de instalação através do gerenciador de pacotes [NPM](https://www.npmjs.com/).
+
+Usando o estilo [API de Composição](https://pt.vuejs.org/api/composition-api-setup) do Vue.js para programação.
+
+Usando o sistema de [Módulos ES Module Browser Build](https://vuejsdevelopers.com/2019/02/04/vue-es-module-browser-build/)
+

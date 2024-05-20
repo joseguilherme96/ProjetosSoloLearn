@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta CEP com Vue.js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script type="importmap">
+        {
+            "imports" :{
+                "vue"  : "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+                "components":"./js/bundle.js"
+            }
+        }
+    </script>
+</head>
+<body style="background-color: #2d2d2d">
+    <div id="app" class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-6 text-center">
+
+                <img :src="data.imagem.caminho" :width="data.imagem.width">
+
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <ed_input :input_data="data.cep" @update_input_data = "(value) => result[data.cep.dados] = value"></ed_input>
+            </div>
+        </div>
+        <div class="row mt-2 px-4 justify-content-center">
+            <div class="col-4"  style="background-color: #39495d; border-radius: 5px;">
+                <code>
+                    <pre>
+                    {{result}}
+                    </pre>
+                </code>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="module">
+
+    import {createApp,ref} from 'vue';
+    import {ed_input} from 'components';
+
+    const app = createApp({
+
+        components : { ed_input },
+        setup(){
+
+            const data = ref({
+
+                cep:{
+                    dados:'dados',
+                    value:'',
+                    type:'text',
+                    label:"CEP",
+                    placeholder:'Digite um cep para busca'
+                },
+                imagem:{
+
+                    caminho:'logo_vue.png',
+                    width:'200'
+
+                }
+                
+
+            });
+
+            const result = ref({})
+
+            return {
+
+                data,
+                result
+
+            }
+
+        }
+
+        
+
+
+    })
+
+    app.mount("#app");
+
+</script>
